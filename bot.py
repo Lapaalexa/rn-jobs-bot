@@ -77,8 +77,7 @@ def check_and_send_jobs():
 
 def main():
     check_and_send_jobs()
-    schedule.every().day.at("09:00").do(check_and_send_jobs)
-    schedule.every().day.at("17:00").do(check_and_send_jobs)
+   schedule.every().hour.do(check_and_send_jobs)
     while True:
         schedule.run_pending()
         time.sleep(60)
